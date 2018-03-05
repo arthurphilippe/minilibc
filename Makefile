@@ -15,8 +15,9 @@ NAME_TEST	=	test.out
 
 RM		=	rm -vf
 
-SRCS		=	strlen.asm	\
-			memset.asm
+SRCS		=	src/strlen.asm	\
+			src/memset.asm	\
+			src/strchr.asm
 
 SRCS_TEST	=	tests/main.c
 

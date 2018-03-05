@@ -1,6 +1,6 @@
-		global	strlen:function
-		section	.text
-my_strlen:
+	global	strlen:function
+	section	.text
+strlen:
 	push	rbp
 	mov	rbp, rsp
 
