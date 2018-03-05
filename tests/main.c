@@ -7,11 +7,17 @@
 
 #include <stdio.h>
 
-int my_strlen(const char *str);
+int strlen(const char *str);
+void *memset(void *s, int c, size_t n);
 
 int main(int ac, char **av)
 {
-	printf("%d\n", my_strlen("12434"));
-	printf("%d\n", my_strlen(""));
+	size_t kappa;
+	char keppo[13];
+
+	printf("%d\n", strlen("12434"));
+	printf("%d\n", strlen(""));
+	memset(keppo, 'k', 10);
+	printf(keppo);
 	return (0);
 }

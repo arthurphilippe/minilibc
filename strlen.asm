@@ -1,10 +1,15 @@
-		global	my_strlen:function
+		global	strlen:function
 		section	.text
 my_strlen:
 	push	rbp
 	mov	rbp, rsp
-	mov	QWORD [rbp-24], rdi	; copy the argument
+
+	; arguments
+	mov	QWORD [rbp-24], rdi
+
+	; local vars
 	mov	DWORD [rbp-4], 0	; prepare loop counter
+
 	jmp	.LOOP
 
 .INC:
@@ -15,6 +20,8 @@ my_strlen:
 	movzx	eax, BYTE [rax+rdx]	; str[i]
 	cmp	al, 0
 	jne	.INC
+
+.END:
 	mov	eax, DWORD [rbp-4]	; return (i)
-	pop	rbp
+	pop	rbp			; restore base
 	ret
