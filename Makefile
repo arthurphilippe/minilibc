@@ -23,12 +23,15 @@ OBJS		=	$(SRCS:.asm=.o)
 
 OBJS_TEST	=	$(SRCS_TEST:.c=.o)
 
+ASFLAGS		=	-felf64
+
 CFLAGS		=	-W -Wextra -Wall -Iinclude/
 
 %.o: %.asm
 	@printf "[\033[0;36mcompiling\033[0m]% 39s\r" $< | tr " " "."
-	@$(ASM) -felf64 $<
+	@$(ASM) $(ASFLAGS) $<
 	@printf "[\033[0;32mcompiled\033[0m]% 40s\n" $< | tr " " "."
+
 %.o: %.c
 	@printf "[\033[0;36mcompiling\033[0m]% 39s\r" $< | tr " " "."
 	@$(CC) -c -o $@ $< $(CFLAGS)
@@ -60,4 +63,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re debug
