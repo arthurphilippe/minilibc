@@ -9,7 +9,7 @@ CC		=	gcc
 
 ASM		=	nasm
 
-NAME		=	libmy_malloc.so
+NAME		=	libasm.so
 
 NAME_TEST	=	test.out
 
@@ -23,7 +23,7 @@ OBJS		=	$(SRCS:.asm=.o)
 
 OBJS_TEST	=	$(SRCS_TEST:.c=.o)
 
-CFLAGS		=	-W -Wextra -Wall -Iinclude/ -fPIC
+CFLAGS		=	-W -Wextra -Wall -Iinclude/
 
 %.o: %.asm
 	@printf "[\033[0;36mcompiling\033[0m]% 39s\r" $< | tr " " "."
@@ -37,7 +37,7 @@ debug: CFLAGS += -ggdb
 debug: $(NAME) $(NAME_TEST)
 
 $(NAME_TEST): $(OBJS_TEST)
-	$(CC) $(OBJS_TEST) -o $(NAME_TEST) -L. -lmy_malloc
+	$(CC) $(OBJS_TEST) -o $(NAME_TEST) -L. -lasm
 
 $(NAME): $(OBJS)
 	$(CC) -shared -o $(NAME) $(OBJS)
