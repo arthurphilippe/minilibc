@@ -7,21 +7,17 @@ strlen:
 	; arguments
 	mov	QWORD [rbp-24], rdi
 
-	; local vars
-	mov	DWORD [rbp-4], 0	; prepare loop counter
-
+	mov	rax, 0	; prepare loop counter
 	jmp	.LOOP
 
 .INC:
-	add	DWORD [rbp-4], 1
+	add	rax, 1
 .LOOP:
-	movsx	rdx, DWORD [rbp-4]	; recover loop counter as QWORD
-	mov	rax, QWORD [rbp-24]	; recover str
-	movzx	eax, BYTE [rax+rdx]	; str[i]
+	mov	rdx, QWORD [rbp-24]	; recover str
+	movzx	eax, BYTE [rdx+rax]	; str[i]
 	cmp	al, 0
 	jne	.INC
 
 .END:
-	mov	eax, DWORD [rbp-4]	; return (i)
 	pop	rbp			; restore base
 	ret

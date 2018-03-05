@@ -7,11 +7,11 @@
 
 #include <stdio.h>
 
-int strlen(const char *str);
+size_t strlen(const char *str);
 void *memset(void *s, int c, size_t n);
 char *strchr(const char *s, int c);
 
-int main(int ac, char **av)
+int main(void)
 {
 	size_t kappa;
 	char keppo[13];

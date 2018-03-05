@@ -27,7 +27,7 @@ OBJS_TEST	=	$(SRCS_TEST:.c=.o)
 
 ASFLAGS		=	-felf64
 
-CFLAGS		=	-W -Wextra -Wall -Iinclude/
+CFLAGS		=	-Iinclude/
 
 %.o: %.asm
 	@printf "[\033[0;36mcompiling\033[0m]% 39s\r" $< | tr " " "."
