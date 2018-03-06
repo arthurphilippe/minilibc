@@ -7,21 +7,25 @@
 
 #include <stdio.h>
 
-size_t strlen(const char *str);
-void *memset(void *s, int c, size_t n);
-char *strchr(const char *s, int c);
+size_t my_strlen(const char *str);
+void *my_memset(void *s, int c, size_t n);
+void *my_memcpy(void *s, const void *d, size_t n);
+char *my_strchr(const char *s, int c);
 
 int main(void)
 {
 	size_t kappa;
 	char keppo[13];
 
-	printf("%d\n", strlen("12434"));
-	printf("%d\n", strlen(""));
-	memset(keppo, 'k', 10);
+	printf("%d\n", my_strlen("12434"));
+	printf("%d\n", my_strlen(""));
+	my_memset(keppo, 'k', 10);
 	keppo[3] = 'b';
+	keppo[12] = 0;
 	printf("%s\n", keppo);
-	char *res = strchr(keppo, 'b');
+	char *res = my_strchr(keppo, 'b');
 	printf("res = %c\n", *res);
+	my_memcpy(keppo, "zeubi", 5);
+	printf("%s\n", keppo);
 	return (0);
 }

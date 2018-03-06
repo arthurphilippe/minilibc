@@ -1,33 +1,41 @@
-	global	my_strchr:function
-	global	strchr:function
+	global	my_rindex:function
+	global	rindex:function
 	section	.text
-my_strchr:
-strchr:
+my_rindex:
+rindex:
 	push	rbp
 	mov	rbp, rsp
 
 	; arguments (rdi: str, esi: char)
-	mov	QWORD [rbp-24], rdi
-
 	; local vars
 	xor	rdx, rdx
+	xor	rbx, rbx
 	jmp	.LOOP
+
+.FOUND:
+	mov	rbx, rdx
+	cmp	al, 0
+	je	.SUCCESS
 
 .INC:
 	inc	rdx
 .LOOP:
 	movzx	eax, BYTE [rdi+rdx]	; str[i]
 	cmp	esi, eax
-	je	.SUCCESS
+	je	.FOUND
 	cmp	al, 0
 	jne	.INC
+
+	movzx	eax, BYTE [rdi+rbx]
+	cmp	esi, eax
+	je	.SUCCESS
 
 .FAIL:
 	mov	rax, 0			; on failure returns null
 	jmp	.END
 
 .SUCCESS:
-	mov	rax, QWORD [rbp-24]	; recover str
+	mov	rax, rdi		; recover str
 	add	rax, rdx
 
 .END:

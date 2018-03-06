@@ -17,7 +17,9 @@ RM		=	rm -vf
 
 SRCS		=	src/strlen.asm	\
 			src/memset.asm	\
-			src/strchr.asm
+			src/strchr.asm	\
+			src/memcpy.asm	\
+			src/rindex.asm
 
 SRCS_TEST	=	tests/main.c
 
@@ -27,7 +29,7 @@ OBJS_TEST	=	$(SRCS_TEST:.c=.o)
 
 ASFLAGS		=	-felf64
 
-CFLAGS		=	-Iinclude/
+CFLAGS		=	-Iinclude/ -fno-builtin-strlen
 
 %.o: %.asm
 	@printf "[\033[0;36mcompiling\033[0m]% 39s\r" $< | tr " " "."
@@ -47,7 +49,7 @@ debug: $(NAME) $(NAME_TEST)
 
 $(NAME_TEST): $(NAME) $(OBJS_TEST)
 	@printf "[\033[0;36mlinking\033[0m]% 41s\r" $(NAME_TEST) | tr " " "."
-	@$(CC) $(OBJS_TEST) -o $(NAME_TEST) -L. -lasm
+	@$(CC) $(OBJS_TEST) -o $(NAME_TEST) -L. -lasm  -fno-builtin-strlen
 	@printf "[\033[0;36mlinked\033[0m]% 42s\n" $(NAME_TEST) | tr " " "."
 
 
