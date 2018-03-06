@@ -11,6 +11,8 @@ size_t my_strlen(const char *str);
 void *my_memset(void *s, int c, size_t n);
 void *my_memcpy(void *s, const void *d, size_t n);
 char *my_strchr(const char *s, int c);
+char *my_rindex(const char *s, int c);
+
 
 int main(void)
 {
@@ -24,7 +26,11 @@ int main(void)
 	keppo[12] = 0;
 	printf("%s\n", keppo);
 	char *res = my_strchr(keppo, 'b');
-	printf("res = %c\n", *res);
+	printf("b = %c\n", *res);
+	res = my_rindex(keppo, 'b');
+	printf("b = %c\n", *res);
+	res = my_rindex(keppo, '\0');
+	printf("\\0 = %c\n", *res);
 	my_memcpy(keppo, "zeubi", 5);
 	printf("%s\n", keppo);
 	return (0);

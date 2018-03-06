@@ -36,7 +36,7 @@ rindex:
 
 .SUCCESS:
 	mov	rax, rdi		; recover str
-	add	rax, rdx
+	add	rax, rbx
 
 .END:
 	pop	rbp			; restore base
