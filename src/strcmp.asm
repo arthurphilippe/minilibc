@@ -1,24 +1,25 @@
-	global	my_strncmp:function
-	global	strncmp:function
+	global	my_strcmp:function
+	global	strcmp:function
 	section	.text
-my_strncmp:
-strncmp:
+my_strcmp:
+strcmp:
 	; parameters (rdi: s1, rsi: s2, rdx: size)
 	; local variables
 	xor	rax, rax		; idx
-	jmp	.LCOND
+	jmp	.LBODY
 
 .LBODY:
 	mov	cl, BYTE [rsi+rax]
 	mov	bl, BYTE [rdi+rax]
+
 	cmp	cl, bl
 	ja	.DIFF
-	inc	rax
 
-.LCOND:
-	cmp	rdx, rax
-	ja	.LBODY
-	jmp	.SUCCESS
+	cmp	cl, 0
+	je	.SUCCESS
+
+	inc	rax
+	jmp	.LBODY
 
 .DIFF:
 	sub	bl, cl

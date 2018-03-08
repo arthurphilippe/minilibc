@@ -34,9 +34,9 @@ int main(void)
 	printf("\\0 = %c\n", *res);
 	my_memcpy(keppo, "zeubi", 5);
 	printf("%s\n", keppo);
-	printf("diff 1: %d\n", my_strncmp(keppo, "zeubi", 5));
-	printf("diff 1: %d\n", strncmp(keppo, "zeubi", 5));
-	printf("diff 2: %d\n", my_strncmp(keppo, "zeubj", 5));
-	printf("diff 2: %d\n", strncmp(keppo, "zeubj", 5));
+	dprintf(1, "diff 1: %d\n", my_strncmp(keppo, "zeubi", 5));
+	dprintf(1, "diff 2: %d\n", my_strncmp(keppo, "zeubj", 5));
+	dprintf(1, "diff 1: %d\n", my_strcmp(keppo, "zeubi"));
+	dprintf(1, "diff 2: %d\n", my_strcmp(keppo, "zeubj"));
 	return (0);
 }
