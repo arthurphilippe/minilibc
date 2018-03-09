@@ -22,7 +22,8 @@ SRCS		=	src/strlen.asm	\
 			src/rindex.asm	\
 			src/strcmp.asm	\
 			src/strncmp.asm	\
-			src/memmove.asm
+			src/memmove.asm	\
+			src/strcasecmp.asm
 
 SRCS_TEST	=	tests/main.c
 

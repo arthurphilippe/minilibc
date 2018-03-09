@@ -39,6 +39,9 @@ int main(void)
 	dprintf(1, "diff 2: %d\n", my_strncmp(keppo, "zeubj", 5));
 	dprintf(1, "diff 1: %d\n", my_strcmp(keppo, "zeubi"));
 	dprintf(1, "diff 2: %d\n", my_strcmp(keppo, "zeubj"));
+	dprintf(1, "diff case: %d\n", my_strcmp(keppo, "zEubi"));
+	dprintf(1, "diff case: %d\n", my_strcmp(keppo, "zEuBI"));
+	dprintf(1, "diff case: %d\n", my_strcmp(keppo, "zEffuBI"));
 	my_memmove(keppo, "voiture", 5);
 	printf("%s\n", keppo);
 	return (0);
