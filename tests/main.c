@@ -10,6 +10,7 @@
 size_t my_strlen(const char *str);
 void *my_memset(void *s, int c, size_t n);
 void *my_memcpy(void *s, const void *d, size_t n);
+void *my_memmove(void *s, const void *d, size_t n);
 char *my_strchr(const char *s, int c);
 char *my_rindex(const char *s, int c);
 int my_strcmp(const char *s1, const char *s2);
@@ -38,5 +39,7 @@ int main(void)
 	dprintf(1, "diff 2: %d\n", my_strncmp(keppo, "zeubj", 5));
 	dprintf(1, "diff 1: %d\n", my_strcmp(keppo, "zeubi"));
 	dprintf(1, "diff 2: %d\n", my_strcmp(keppo, "zeubj"));
+	my_memmove(keppo, "voiture", 5);
+	printf("%s\n", keppo);
 	return (0);
 }
