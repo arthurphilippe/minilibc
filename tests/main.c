@@ -17,6 +17,8 @@ int my_strcmp(const char *s1, const char *s2);
 int my_strncmp(const char *s1, const char *s2, size_t n);
 char *strstr(const char *s1, const char *s2);
 char *my_strstr(const char *s1, const char *s2);
+size_t strcspn(const char *s, const char *accept);
+size_t my_strcspn(const char *s, const char *accept);
 
 int main(void)
 {
@@ -48,5 +50,6 @@ int main(void)
 	printf("%s\n", keppo);
 	printf("%s\n", strstr(keppo, "tu"));
 	printf("%s\n", my_strstr(keppo, "tu"));
+	printf("%ld", my_strcspn("kappa", "ak"));
 	return (0);
 }
