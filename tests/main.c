@@ -15,6 +15,8 @@ char *my_strchr(const char *s, int c);
 char *my_rindex(const char *s, int c);
 int my_strcmp(const char *s1, const char *s2);
 int my_strncmp(const char *s1, const char *s2, size_t n);
+char *strstr(const char *s1, const char *s2);
+char *my_strstr(const char *s1, const char *s2);
 
 int main(void)
 {
@@ -44,5 +46,7 @@ int main(void)
 	dprintf(1, "diff case: %d\n", my_strcmp(keppo, "zEffuBI"));
 	my_memmove(keppo, "voiture", 5);
 	printf("%s\n", keppo);
+	printf("%s\n", strstr(keppo, "tu"));
+	printf("%s\n", my_strstr(keppo, "tu"));
 	return (0);
 }
