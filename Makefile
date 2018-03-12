@@ -61,7 +61,7 @@ $(NAME_TEST): $(NAME) $(OBJS_TEST)
 
 $(NAME): $(OBJS)
 	@printf "[\033[0;36mlinking\033[0m]% 41s\r" $(NAME) | tr " " "."
-	@$(CC) -shared -o $(NAME) $(OBJS)
+	@$(CC) -nostdlib -shared -o $(NAME) $(OBJS)
 	@printf "[\033[0;36mlinked\033[0m]% 42s\n" $(NAME) | tr " " "."
 
 clean:
