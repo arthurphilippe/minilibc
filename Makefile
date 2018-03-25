@@ -11,7 +11,7 @@ ASM		=	nasm
 
 NAME		=	libasm.so
 
-NAME_TEST	=	test.out
+NAME_TEST	=	unit_tests.out
 
 RM		=	rm -vf
 
@@ -27,7 +27,7 @@ SRCS		=	src/strlen.asm	\
 			src/strstr.asm	\
 			src/strcspn.asm
 
-SRCS_TEST	=	tests/main.c
+SRCS_TEST	=	tests/test-strcmp.c
 
 OBJS		=	$(SRCS:.asm=.o)
 
@@ -50,12 +50,13 @@ CFLAGS		=	-Iinclude/ -fno-builtin-strlen
 all: $(NAME)
 
 debug: fclean
-debug: CFLAGS += -ggdb
 debug: $(NAME) $(NAME_TEST)
+
+tests: $(NAME_TEST)
 
 $(NAME_TEST): $(NAME) $(OBJS_TEST)
 	@printf "[\033[0;36mlinking\033[0m]% 41s\r" $(NAME_TEST) | tr " " "."
-	@$(CC) $(OBJS_TEST) -o $(NAME_TEST) -L. -lasm  -fno-builtin-strlen
+	@$(CC) $(OBJS_TEST) -o $(NAME_TEST) -lcriterion -ldl
 	@printf "[\033[0;36mlinked\033[0m]% 42s\n" $(NAME_TEST) | tr " " "."
 
 
@@ -68,9 +69,9 @@ clean:
 	@printf "[\033[0;31mdeletion\033[0m][objects]% 31s\n" `$(RM) $(OBJS) $(OBJS_TEST) | wc -l | tr -d '\n'` | tr " " "."
 
 fclean: clean
-	@$(RM) $(NAME) $(TEST) > /dev/null
+	@$(RM) $(NAME) $(NAME_TEST) > /dev/null
 	@printf "[\033[0;31mdeletion\033[0m][binary]% 32s\n" $(NAME) | tr " " "."
 
 re: fclean all
 
-.PHONY: all clean fclean re debug
+.PHONY: all clean fclean re debug tests

@@ -13,7 +13,7 @@ strcmp:
 	mov	bl, BYTE [rdi+rax]
 
 	cmp	cl, bl
-	ja	.DIFF
+	jne	.DIFF
 
 	cmp	cl, 0
 	je	.SUCCESS

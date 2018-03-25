@@ -40,7 +40,7 @@ int main(void)
 	my_memcpy(keppo, "zeubi", 5);
 	printf("%s\n", keppo);
 	dprintf(1, "diff 1: %d\n", my_strncmp(keppo, "zeubi", 5));
-	dprintf(1, "diff 2: %d\n", my_strncmp(keppo, "zeubj", 5));
+	dprintf(1, "diff 2: %d\n", my_strncmp(keppo, "zeubf", 5));
 	dprintf(1, "diff 1: %d\n", my_strcmp(keppo, "zeubi"));
 	dprintf(1, "diff 2: %d\n", my_strcmp(keppo, "zeubj"));
 	dprintf(1, "diff case: %d\n", my_strcmp(keppo, "zEubi"));

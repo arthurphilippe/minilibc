@@ -6,6 +6,7 @@ strncmp:
 	; parameters (rdi: s1, rsi: s2, rdx: size)
 	; local variables
 	xor	rax, rax		; idx
+	inc	rdx
 	jmp	.LCOND
 
 .LBODY:
@@ -17,7 +18,7 @@ strncmp:
 
 .LCOND:
 	cmp	rdx, rax
-	ja	.LBODY
+	je	.LBODY
 	jmp	.SUCCESS
 
 .DIFF:
