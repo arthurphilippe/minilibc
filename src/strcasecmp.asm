@@ -33,7 +33,7 @@ strcmpcasecmp:
 .SKIP_LOWERB:
 
 	cmp	cl, bl
-	ja	.DIFF
+	jne	.DIFF
 
 	cmp	cl, 0
 	je	.SUCCESS

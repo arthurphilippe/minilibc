@@ -13,12 +13,12 @@ strncmp:
 	mov	cl, BYTE [rsi+rax]
 	mov	bl, BYTE [rdi+rax]
 	cmp	cl, bl
-	jna	.DIFF
+	jne	.DIFF
 	inc	rax
 
 .LCOND:
 	cmp	rdx, rax
-	je	.LBODY
+	jne	.LBODY
 	jmp	.SUCCESS
 
 .DIFF:

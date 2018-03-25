@@ -59,3 +59,13 @@ Test(strcmp, basic_len_diff) {
 	test_strcmp(call, "totoa", "totoai");
 	test_strcmp(call, "totoai", "totoa");
 }
+
+Test(strcmp, nothing) {
+	int (*call)(const char *s1, const char *s2);
+
+	call = (int (*)(const char *, const char *))
+		load_sym("libasm.so", "strcmp");
+	test_strcmp(call, "", "totoai");
+	test_strcmp(call, "totoai", "");
+}
+
