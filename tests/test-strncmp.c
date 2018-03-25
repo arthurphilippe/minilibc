@@ -13,7 +13,7 @@ const void *load_sym(const char *dl, const char *sym);
 void test_strncmp(int (*call)(const char *, const char *, size_t),
 			const char *s1, const char *s2, size_t n)
 {
-	cr_assert_eq(strncmp(s1, s2, n), call(s1, s2, n), "got %d instead of %d with size %ld and \"%s\" compared against \"%s\"\n",
+	cr_expect_eq(strncmp(s1, s2, n), call(s1, s2, n), "got %d instead of %d with size %ld and \"%s\" compared against \"%s\"\n",
 		call(s1, s2, n), strncmp(s1, s2, n), n, s1, s2);
 }
 
@@ -23,9 +23,10 @@ Test(strncmp, basic_eq) {
 	call = (int (*)(const char *, const char *, size_t))
 		load_sym("libasm.so", "strncmp");
 	test_strncmp(call, "toto", "toto", 4);
-	test_strncmp(call, "toto", "toto", 3);
-	test_strncmp(call, "toto", "toto", 2);
-	test_strncmp(call, "toto", "toto", 1);
+	// test_strncmp(call, "toto", "toto", 3);
+	// test_strncmp(call, "toto", "toto", 2);
+	// test_strncmp(call, "toto", "toto", 1);
+	// test_strncmp(call, "12345", "19345", 1);
 }
 
 Test(strncmp, basic_last_diff) {

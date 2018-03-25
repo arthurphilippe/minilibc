@@ -28,7 +28,9 @@ SRCS		=	src/strlen.asm	\
 			src/strcspn.asm
 
 SRCS_TEST	=	tests/test-strcmp.c	\
-			tests/test-strncmp.c
+			tests/test-strncmp.c	\
+			tests/test-strcasecmp.c	\
+			tests/test-strstr.c
 
 OBJS		=	$(SRCS:.asm=.o)
 

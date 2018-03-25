@@ -12,11 +12,11 @@ strstr:
 	mov	r8b, BYTE [rsi+rax]
 	mov	r9b, BYTE [rdi+rax]
 
-	cmp	r8b, r9b
-	ja	.DIFF
-
 	cmp	r8b, 0
 	je	.SUCCESS
+
+	cmp	r8b, r9b
+	ja	.DIFF
 
 	inc	rax
 	jmp	.LBODY
