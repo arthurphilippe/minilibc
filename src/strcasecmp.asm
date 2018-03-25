@@ -1,8 +1,8 @@
-	global	my_strcmpcasecmp:function
-	global	strcmpcasecmp:function
+	global	my_strcasecmp:function
+	global	strcasecmp:function
 	section	.text
-my_strcmpcasecmp:
-strcmpcasecmp:
+my_strcasecmp:
+strcasecmp:
 	; parameters (rdi: s1, rsi: s2, rdx: size)
 	; local variables
 	xor	rax, rax		; idx
