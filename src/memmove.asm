@@ -1,7 +1,5 @@
-	global	my_memmove:function
 	global	memmove:function
 	section	.text
-my_memmove:
 memmove:
 	; parameters (rdi: dest, rsi: source, rdx: size)
 	; local variables

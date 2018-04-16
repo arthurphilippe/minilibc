@@ -1,7 +1,5 @@
-	global	my_memcpy:function
 	global	memcpy:function
 	section	.text
-my_memcpy:
 memcpy:
 	; parameters (rdi: dest, rsi: source, rdx: size)
 	; local variables

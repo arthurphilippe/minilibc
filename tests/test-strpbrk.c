@@ -23,13 +23,20 @@ Test(strpbrk, basic_matches) {
 		load_sym("libasm.so", "strpbrk");
 	test_strpbrk(call, "totato", "a");
 	test_strpbrk(call, "totato", "t");
+}
+
+Test(strpbrk, ordered_matches) {
+	char *(*call)(const char *s1, const char *s2);
+
+	call = (char *(*)(const char *, const char *))
+		load_sym("libasm.so", "strpbrk");
 	test_strpbrk(call, "totato", " t");
 	test_strpbrk(call, "totato", "at");
 	test_strpbrk(call, "totato", "oa");
 	test_strpbrk(call, "totato", "ao");
 }
 
-Test(strpbrk, hidden_matches) {
+Test(strpbrk, haystacked_matches) {
 	char *(*call)(const char *s1, const char *s2);
 
 	call = (char *(*)(const char *, const char *))

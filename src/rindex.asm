@@ -1,7 +1,5 @@
-	global	my_rindex:function
 	global	rindex:function
 	section	.text
-my_rindex:
 rindex:
 	push	rbp
 	mov	rbp, rsp

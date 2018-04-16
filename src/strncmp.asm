@@ -1,7 +1,5 @@
-	global	my_strncmp:function
 	global	strncmp:function
 	section	.text
-my_strncmp:
 strncmp:
 	; parameters (rdi: s1, rsi: s2, rdx: size)
 	; local variables

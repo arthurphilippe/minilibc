@@ -1,7 +1,5 @@
-	global	my_strchr:function
 	global	strchr:function
 	section	.text
-my_strchr:
 strchr:
 	push	rbp
 	mov	rbp, rsp

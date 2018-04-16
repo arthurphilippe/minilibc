@@ -1,7 +1,5 @@
-	global	my_strstr:function
 	global	strstr:function
 	section	.text
-my_strstr:
 strstr:
 	; parameters (rdi: haystack, rsi: needle)
 	; local variables

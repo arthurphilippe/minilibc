@@ -1,7 +1,5 @@
-	global	my_strcspn:function
 	global	strcspn:function
 	section	.text
-my_strcspn:
 strcspn:
 	; parameters (rdi: str, rsi: accept)
 	; local variables
