@@ -13,7 +13,7 @@ const void *load_sym(const char *dl, const char *sym);
 void test_strstr(char *(*call)(const char *, const char *),
 			const char *s1, const char *s2)
 {
-	cr_expect_eq(strstr(s1, s2), call(s1, s2), "got %p instead of %p with \"%s\" compared against \"%s\"\n", call(s1, s2), strstr(s1, s2), s1, s2);
+	cr_expect_eq(strstr(s1, s2), call(s1, s2), "got %p instead of %p with \"%s\" compared against \"%s\"\nThe first string starts at %p.", call(s1, s2), strstr(s1, s2), s1, s2, s1);
 }
 
 Test(strstr, basic_match) {

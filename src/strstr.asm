@@ -9,23 +9,23 @@ strstr:
 	jmp	.LBODY
 
 .LBODY:
-	mov	r8b, BYTE [rsi+rax]
-	mov	r9b, BYTE [rdi+rax]
+	mov	r8b, BYTE [rsi+rax] ; char from needle at pos rax
+	mov	r9b, BYTE [rdi+rax] ; char from haystack at pos rax
 
 	cmp	r8b, 0
 	je	.SUCCESS
 
 	cmp	r8b, r9b
-	ja	.DIFF
+	jne	.DIFF
 
 	inc	rax
 	jmp	.LBODY
 
 .DIFF:
 	inc	rdi
-	xor	rax, rax
 	cmp	byte [rdi], 0x0
 	je	.FAILURE
+	xor	rax, rax
 	jmp	.LBODY
 
 .FAILURE:
