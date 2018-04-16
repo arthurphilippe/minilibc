@@ -32,7 +32,10 @@ SRCS_TEST	=	tests/test-strcmp.c	\
 			tests/test-strncmp.c	\
 			tests/test-strcasecmp.c	\
 			tests/test-strstr.c	\
-			tests/test-strpbrk.c
+			tests/test-strpbrk.c	\
+			tests/test-strlen.c	\
+			tests/test-rindex.c	\
+			tests/test-strchr.c
 
 OBJS		=	$(SRCS:.asm=.o)
 
