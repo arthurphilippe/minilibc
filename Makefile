@@ -24,13 +24,15 @@ SRCS		=	src/strlen.asm	\
 			src/strncmp.asm	\
 			src/memmove.asm	\
 			src/strcasecmp.asm	\
-			src/strstr.asm	\
-			src/strcspn.asm
+			src/strstr.asm		\
+			src/strcspn.asm		\
+			src/strpbrk.asm
 
 SRCS_TEST	=	tests/test-strcmp.c	\
 			tests/test-strncmp.c	\
 			tests/test-strcasecmp.c	\
-			tests/test-strstr.c
+			tests/test-strstr.c	\
+			tests/test-strpbrk.c
 
 OBJS		=	$(SRCS:.asm=.o)
 
