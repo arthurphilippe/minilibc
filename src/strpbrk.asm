@@ -5,7 +5,7 @@ strpbrk:
 	; parameters (rdi: string, rsi: accept)
 	; local variables
 	xor	rax, rax		; idx
-	mov	r8b, BYTE [rsi] ; char from accept at pos rax
+	mov	r8b, BYTE [rsi+rax]
 	mov	r9b, BYTE [rdi] ; char from string at pos rax
 	cmp	r9b, 0x0
 	je	.FAILURE

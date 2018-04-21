@@ -25,7 +25,7 @@ SRCS		=	src/strlen.asm	\
 			src/memmove.asm	\
 			src/strcasecmp.asm	\
 			src/strstr.asm		\
-			src/strcspn.asm		\
+			src/strspn.asm		\
 			src/strpbrk.asm
 
 SRCS_TEST	=	tests/test-strcmp.c	\
@@ -33,6 +33,7 @@ SRCS_TEST	=	tests/test-strcmp.c	\
 			tests/test-strcasecmp.c	\
 			tests/test-strstr.c	\
 			tests/test-strpbrk.c	\
+			tests/test-strspn.c	\
 			tests/test-strlen.c	\
 			tests/test-rindex.c	\
 			tests/test-strchr.c
