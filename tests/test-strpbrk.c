@@ -61,3 +61,13 @@ Test(strpbrk, no_match) {
 	test_strpbrk(call, "totato", "TIfdsG");
 	test_strpbrk(call, "totato", "*=$");
 }
+
+Test(strpbrk, no_string) {
+	char *(*call)(const char *s1, const char *s2);
+
+	call = (char *(*)(const char *, const char *))
+		load_sym("libasm.so", "strpbrk");
+	test_strpbrk(call, "", "dfghjk");
+	test_strpbrk(call, "", "");
+	// test_strpbrk(call, NULL, "dfghjk");
+}

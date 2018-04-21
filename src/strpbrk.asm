@@ -6,6 +6,9 @@ strpbrk:
 	; local variables
 	xor	rax, rax		; idx
 	mov	r8b, BYTE [rsi] ; char from accept at pos rax
+	mov	r9b, BYTE [rdi] ; char from string at pos rax
+	cmp	r9b, 0x0
+	je	.FAILURE
 
 .LBODY:
 	mov	r9b, BYTE [rdi] ; char from string at pos rax
@@ -14,7 +17,7 @@ strpbrk:
 	cmp	r8b, r9b
 	je	.SUCCESS
 
-	; advance on next accept char
+	; advance onto the next accept char
 	inc	rax
 	mov	r8b, BYTE [rsi+rax]
 
@@ -22,7 +25,7 @@ strpbrk:
 	cmp	r8b, 0x0
 	jne	.LBODY
 
-	; else advance on next string char
+	; else advance onto the next string char
 	inc	rdi
 
 	; if new *rdi is nil --> it's a failure
