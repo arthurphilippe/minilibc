@@ -34,6 +34,7 @@ Test(strspn, ordered_matches) {
 	test_strspn(call, "totato", "at");
 	test_strspn(call, "totato", "oa");
 	test_strspn(call, "totato", "ao");
+	test_strspn(call, "1234567765456787654voiture", "1234567890");
 }
 
 Test(strspn, haystacked_matches) {
@@ -69,5 +70,4 @@ Test(strspn, no_string) {
 		load_sym("libasm.so", "strspn");
 	test_strspn(call, "", "dfghjk");
 	test_strspn(call, "", "");
-	// test_strspn(call, NULL, "dfghjk");
 }

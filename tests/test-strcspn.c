@@ -34,6 +34,7 @@ Test(strcspn, ordered_matches) {
 	test_strcspn(call, "totato", "at");
 	test_strcspn(call, "totato", "oa");
 	test_strcspn(call, "totato", "ao");
+	test_strcspn(call, "1234567765456787654voiture", "1234567890");
 }
 
 Test(strcspn, haystacked_matches) {
