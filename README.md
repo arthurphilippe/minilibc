@@ -8,4 +8,4 @@ Recode of a few standard libc functions as a way to learn NASM
 - Test with `make tests && ./unit_tests.out`
 
 ## Footnote
-As you'll see not all tests are passing, that's because, in those cases, I do not understand the behavior of the functions I tried to implement.
+As you'll see not all tests are passing, that's because, in those cases, I did not understand the behavior of the functions I was trying to implement.
